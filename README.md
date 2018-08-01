@@ -2,6 +2,20 @@
 
 Parser human readable dates to `System.DateTime`. Based on TimeStamper and updated to work with Asp.Net Core/.NET Framwork.
 
+
+Installation:
+---
+**Nuget Package Manager:**
+```
+Install-Package HumanDateParser -Version 1.0.0
+```
+
+**Dotnet CLI:**
+```
+dotnet add package HumanDateParser --version 1.0.0
+```
+
+
 Usage:
 ---
 ```csharp
