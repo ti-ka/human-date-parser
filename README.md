@@ -7,12 +7,12 @@ Installation:
 ---
 **Nuget Package Manager:**
 ```
-Install-Package HumanDateParser -Version 1.0.0
+Install-Package HumanDateParser -Version 1.1.0
 ```
 
 **Dotnet CLI:**
 ```
-dotnet add package HumanDateParser --version 1.0.0
+dotnet add package HumanDateParser --version 1.1.0
 ```
 
 
