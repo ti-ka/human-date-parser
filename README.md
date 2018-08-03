@@ -19,9 +19,9 @@ dotnet add package HumanDateParser --version 1.0.0
 Usage:
 ---
 ```csharp
-HumanDateParser.Parse("1 month ago")
-HumanDateParser.Parse("after 15 days")
-HumanDateParser.Parse("15th feb 2010 at 5:30pm")
+DateParser.Parse("1 month ago")
+DateParser.Parse("after 15 days")
+DateParser.Parse("15th feb 2010 at 5:30pm")
 ```
 
 Contribute:

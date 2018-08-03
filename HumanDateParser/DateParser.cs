@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace HumanDateParser
 {
-    public class HumanDateParser
+    public class DateParser
     {
         private static DateRange Eval(string str)
         {

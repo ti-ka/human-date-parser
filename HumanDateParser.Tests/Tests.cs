@@ -10,7 +10,7 @@ namespace HumanDateParser.Tests
         public void MonthTest()
         {
             var actual = DateTime.Now.AddMonths(-1);
-            var parsed = HumanDateParser.Parse("1 month ago");
+            var parsed = DateParser.Parse("1 month ago");
             
             Assert.IsNotNull(parsed);
             Assert.AreEqual(actual.Year, parsed.Year);
@@ -22,7 +22,7 @@ namespace HumanDateParser.Tests
         public void DaysTest()
         {
             var actual = DateTime.Now.AddDays(15);
-            var parsed = HumanDateParser.Parse("after 15 days");
+            var parsed = DateParser.Parse("after 15 days");
             
             Assert.IsNotNull(parsed);
             Assert.AreEqual(actual.Year, parsed.Year);
@@ -34,7 +34,7 @@ namespace HumanDateParser.Tests
         public void SpecificTimeTest()
         {
             var actual = DateTime.Parse("2010-2-15 05:30 PM");
-            var parsed = HumanDateParser.Parse("15th feb 2010 at 5:30pm");
+            var parsed = DateParser.Parse("15th feb 2010 at 5:30pm");
             
             Assert.IsNotNull(parsed);
             Assert.AreEqual(actual.Year, parsed.Year);
