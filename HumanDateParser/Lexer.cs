@@ -81,8 +81,8 @@ namespace HumanDateParser
                 case "TODAY":
                     returnToken = new Token(TokenKind.TODAY, "<today>");
                     break;
-                case "TOMMOROW":
-                    returnToken = new Token(TokenKind.TOMMOROW, "<tommorow>");
+                case "TOMORROW":
+                    returnToken = new Token(TokenKind.TOMORROW, "<tomorrow>");
                     break;
                 case "YESTERDAY":
                     returnToken = new Token(TokenKind.YESTERDAY, "<yesterday>");

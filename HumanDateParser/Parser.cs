@@ -74,7 +74,7 @@ namespace HumanDateParser
                     _dateRange.AddDate(Today);
                     Load();
                     break;
-                case TokenKind.TOMMOROW:
+                case TokenKind.TOMORROW:
                     _dateRange.AddDate(Today.AddDays(1));
                     Load();
                     break;

@@ -7,6 +7,30 @@ namespace HumanDateParser.Tests
     public class Tests
     {
         [TestMethod]
+        public void TodayTest()
+        {
+            var actual = DateTime.Now;
+            var parsed = DateParser.Parse("today");
+
+            Assert.IsNotNull(parsed);
+            Assert.AreEqual(actual.Year, parsed.Year);
+            Assert.AreEqual(actual.Month, parsed.Month);
+            Assert.AreEqual(actual.Date, parsed.Date);
+        }
+
+        [TestMethod]
+        public void TomorrowTest()
+        {
+            var actual = DateTime.Now.AddDays(1);
+            var parsed = DateParser.Parse("tomorrow");
+
+            Assert.IsNotNull(parsed);
+            Assert.AreEqual(actual.Year, parsed.Year);
+            Assert.AreEqual(actual.Month, parsed.Month);
+            Assert.AreEqual(actual.Date, parsed.Date);
+        }
+
+        [TestMethod]
         public void MonthTest()
         {
             var actual = DateTime.Now.AddMonths(-1);

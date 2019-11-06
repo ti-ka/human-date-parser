@@ -11,7 +11,7 @@
         TIME_MODIFIER,
         DAY_IDENTIFIER,
         TODAY,
-        TOMMOROW,
+        TOMORROW,
         YESTERDAY,
         DATE_IDENTIFIER,
         NUMBER,
