@@ -83,7 +83,7 @@ namespace HumanDateParser
                     Load();
                     break;
                 case TokenKind.DAY_IDENTIFIER:
-                    DayDateIdent(Peek(1).Text);
+                    DayDateIdent(Peek(1).Text, TokenKind.DAY);
                     Load();
                     break;
                 case TokenKind.NUMBER:
@@ -182,13 +182,23 @@ namespace HumanDateParser
                 _dateRange.AddDate(new DateTime(DateTime.Now.Year, DateTime.Now.Month, num));
         }
 
-        private void DayDateIdent(string dayString)
+        private void DayDateIdent(string dayString, TokenKind tokenKind)
         {
+            DateTime pivotDate;
+            if (tokenKind == TokenKind.NEXT)
+            {
+                pivotDate = Today.AddDays(1);
+            }
+            else
+            {
+                pivotDate = Today;
+            }
+
             for (var i = 0; i < 7; i++ )
             {
-                if (Today.AddDays(i).DayOfWeek == (DayOfWeek)Enum.Parse(typeof(DayOfWeek), dayString, true))
+                if (pivotDate.AddDays(i).DayOfWeek == (DayOfWeek)Enum.Parse(typeof(DayOfWeek), dayString, true))
                 {
-                    _dateRange.AddDate(Today.AddDays(i));
+                    _dateRange.AddDate(pivotDate.AddDays(i));
                     return;
                 }
             }
@@ -200,6 +210,10 @@ namespace HumanDateParser
             if (Peek(2).Kind == TokenKind.AGO) num = num * -1;
             switch (Peek(1).Kind)
             {
+                case TokenKind.DAY_IDENTIFIER:
+                    DayDateIdent(Peek(1).Text, TokenKind.NEXT);
+                    Load();
+                    break;
                 case TokenKind.DAY:
                     _dateRange.AddDate(Today.AddDays(num));
                     Load();

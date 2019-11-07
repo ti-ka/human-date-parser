@@ -19,6 +19,32 @@ namespace HumanDateParser.Tests
         }
 
         [TestMethod]
+        public void NextMondayTest()
+        {
+            var offset = (7 - (int)DateTime.Now.DayOfWeek) + 1;
+            var actual = DateTime.Now.AddDays(offset) ;
+            var parsed = DateParser.Parse("next monday");
+
+            Assert.IsNotNull(parsed);
+            Assert.AreEqual(actual.Year, parsed.Year);
+            Assert.AreEqual(actual.Month, parsed.Month);
+            Assert.AreEqual(actual.Date, parsed.Date);
+        }
+
+        [TestMethod]
+        public void NextThursdayTest()
+        {
+            var offset = (7 - (int)DateTime.Now.DayOfWeek) + 4;
+            var actual = DateTime.Now.AddDays(offset);
+            var parsed = DateParser.Parse("next thursday");
+
+            Assert.IsNotNull(parsed);
+            Assert.AreEqual(actual.Year, parsed.Year);
+            Assert.AreEqual(actual.Month, parsed.Month);
+            Assert.AreEqual(actual.Date, parsed.Date);
+        }
+
+        [TestMethod]
         public void TomorrowTest()
         {
             var actual = DateTime.Now.AddDays(1);
